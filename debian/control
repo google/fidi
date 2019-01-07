@@ -1,0 +1,61 @@
+Source: fidi
+Section: net
+Priority: optional
+Maintainer: Manoj Srivastava <srivasta@debian.org>
+Build-Depends: debhelper (>= 11), libfl-dev, bison, doxygen, graphviz,
+               plantuml, libpoco-dev
+Standards-Version: 4.3.0
+#Homepage: <insert the upstream URL, if relevant>
+#Vcs-Browser: https://salsa.debian.org/debian/fidi
+#Vcs-Git: https://salsa.debian.org/debian/fidi.git
+
+Package: fidi
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: (φίδι) service mock system for testing infrastructure
+ The goal of φίδι (fidi) is to model some aspects of arbitrarily
+ complex services, and simulate the behaviour of the service business
+ logic (without actually containing any real business logic or
+ complexity) in presence of external stimuli. Each instance of the
+ φίδι (fidi) application can mock a node in the complex, client
+ serfver service that it is mocking. Different instances of φίδι
+ (fidi) talk to other instanceds of themselves, like a snake (φίδι)
+ eating its tail.
+ .
+ φίδι (fidi) also simulates fault injection symptoms, which allows the
+ simulation of normal behaviour as well as incidents and recovery. The
+ motivation is to test the behaviour of the infrastructure,
+ monitoring, alerting and logging systems, while mocking an actual
+ service.
+ .
+ This package contains the actual φίδι (fidi) application that can
+ handle HTTP requests, and tailors its availability and latency
+ profiles based on the input requests, and makes downstream HTTP calls
+ with the fan out, concurrency, and payload as defined in the input
+ request.
+ .
+ This package also contains a linter for φίδι (fidi) requests that
+ detects any syntax and most semantic errors in the input request.
+
+Package: fidi-doc
+Architecture: all
+Section: doc
+Depends: ${misc:Depends}
+Description: documentation for φίδι (fidi) service mock system
+ The goal of φίδι (fidi) is to model some aspects of arbitrarily
+ complex services, and simulate the behaviour of the service business
+ logic (without actually containing any real business logic or
+ complexity) in presence of external stimuli. Each instance of the
+ φίδι (fidi) application can mock a node in the complex, client
+ serfver service that it is mocking. Different instances of φίδι
+ (fidi) talk to other instanceds of themselves, like a snake (φίδι)
+ eating its tail.
+ .
+ φίδι (fidi) also simulates fault injection symptoms, which allows the
+ simulation of normal behaviour as well as incidents and recovery. The
+ motivation is to test the behaviour of the infrastructure,
+ monitoring, alerting and logging systems, while mocking an actual
+ service.
+ .
+ This package contains the documentation for the service mock application
+ φίδι (fidi)

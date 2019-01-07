@@ -1,0 +1,46 @@
+φίδι (fidi) for Debian
+--------------
+
+ φίδι (fidi) was developed at Google as free software to help test
+ infrastructure and monitoring solution without requiring an actual
+ service to serve as the guinea pig.
+
+ The goal of φίδι (fidi) is to model some aspects of arbitrarily
+ complex services, and simulate the behaviour of the service business
+ logic (without actually containing any real business logic or
+ complexity) in presence of external stimuli. Each instance of the
+ φίδι (fidi) application can mock a node in the complex, client
+ serfver service that it is mocking. Different instances of φίδι
+ (fidi) talk to other instanceds of themselves, like a snake (φίδι)
+ eating its tail.
+
+ φίδι (fidi) also simulates fault injection symptoms, which allows the
+ simulation of normal behaviour as well as incidents and recovery. The
+ motivation is to test the behaviour of the infrastructure,
+ monitoring, alerting and logging systems, while mocking an actual
+ service.
+
+ This package contains the actual φίδι (fidi) application that can
+ handle HTTP requests, and tailors its availability and latency
+ profiles based on the input requests, and makes downstream HTTP calls
+ with the fan out, concurrency, and payload as defined in the input
+ request.
+
+ This package also contains a linter for φίδι (fidi) requests that
+ detects any syntax and most semantic errors in the input request.
+
+ Copyright 2018-2019 Google LLC
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+ https://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ -- Manoj Srivastava <srivasta@debian.org>, Wed,  2 Jan 2019 13:54:20 -0800

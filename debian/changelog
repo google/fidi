@@ -1,0 +1,5 @@
+fidi (1.0.0-1) UNRELEASED; urgency=low
+
+  * Initial release (Closes: #nnnn) ITP Bug
+
+ -- Manoj Srivastava <srivasta@debian.org>  Fri, 28 Dec 2018 13:48:09 -0800
