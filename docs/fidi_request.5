@@ -1,0 +1,120 @@
+.\" // Copyright 2018-2019 Google LLC
+.\"
+.\" Licensed under the Apache License, Version 2.0 (the "License");
+.\" you may not use this file except in compliance with the License.
+.\" You may obtain a copy of the License at
+.\"
+.\" https://www.apache.org/licenses/LICENSE-2.0
+.\"
+.\" Unless required by applicable law or agreed to in writing, software
+.\" distributed under the License is distributed on an "AS IS" BASIS,
+.\" WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+.\" See the License for the specific language governing permissions and
+.\" limitations under the License.
+.TH FIDI_REQUEST 5 2018-12-29
+.SH NAME
+fidi_request \- the request format of the fidi  (φίδι) service mock application
+.SH SYNOPSIS
+The request looks something like this:
+.PP
+.EX
+client    [ hostname = "127.0.0.1", port = 8001, ]
+frontend  [ url = "http://127.0.0.1:8002/fidi", ]
+[
+  predelay = 12,
+  postdelay = 20,
+  response  = 200,
+  -> frontend repeat = 2 sequence = 1 [
+    predelay = 12,
+    postdelay = 20,
+    response  = 200,
+  ]
+]
+.EE
+.SH DESCRIPTION
+This manual page documents the
+.B fidi (φίδι)
+HTTP request format. Each instance of
+.B fidi_app
+mocks the behaviour of a single server in the service being mocked by
+.B fidi (φίδι);
+The number and targets of these calls are defined by the input
+request. Indeed, all aspects of the applications behaviour are
+controlled by the input request, so the behaviour modeled by the
+mocked service maybe changed by each successive request.
+.SS Hosts/Nodes
+The request must specify the attributes of every instance of the
+.B fidi_app
+that is involved in the interaction defined in the request, either a
+source node or a destination node for HTTP requests. The host/node
+specification has a name, followed by square brackets containing a
+list of comma separated attribute key-value pairs.
+.RS 6
+client    [ hostname = "127.0.0.1", port = 8001, ]
+.RE
+At a minimum, the node attributes must contain either a
+.I URL
+key-value pair, or both
+.I host
+and
+.I port
+definitions, so that the HTTP client request can be made to the
+host/node.
+.SS Calls/Edges
+Each call is enclosed by square brackets, and differs from the node
+definition in that the requests are not named. The request contains
+request parameters, which are comma separated key value pairs. The
+following keys have significance:
+.RS 4
+.IP predelay 4
+The value should be an unsigned integer that represents the number of
+milliseconds the
+.B fidi_app
+shall sleep on handling the request before taking any other action.
+.IP postdelay
+The value should be an unsigned integer that represents the number of
+milliseconds the
+.B fidi_app
+shall sleep after all other actions for the request have been
+performed, and just before the call returns
+.IP response
+The value should be a legal HTTP response code (sanity checked to be
+a small integer less than 600).
+.IP size
+The value should be an unsigned integer that represents the number of
+bytes in the returned response.
+.IP memory
+The value should be an unsigned integer that represents the number of
+bytes of memory the
+.B fidi_app
+shall allocate during handling of the request.
+.RE
+.PP
+Interspersed in these attributes can be specifications for calls the
+.B fidi_app
+should make.
+.RS 6
+-> frontend repeat = 2 sequence = 1 [...]
+.RE
+Each downstream call is defined by the arrow symbol "->", followed by
+the destination name (the name should already have been defined as
+detailed in the
+.B nodes
+section above), and optionally a
+.I repeat count,
+and/or a
+.I sequence number.
+The default repeat count is 1, and the default sequence number is 1 as
+well. This is followed by unparsed text in square brackets; those are
+instructions for the destination host to process. In fact, the content
+within the square brackets are identical to the call/edge format we
+have defined here; to an arbitrary depth.
+.PP
+Any number of calls can be defined. Calls with the same sequence
+number shall be made in parallel; repeated calls are always made in
+parallel.
+.SH "SEE ALSO"
+.BR fidi_app (1),
+.BR fidi_lint (1).
+.SH AUTHOR
+Manoj Srivastava <srivasta@ieee.org>

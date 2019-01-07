@@ -1,0 +1,140 @@
+.\" // Copyright 2018-2019 Google LLC
+.\"
+.\" Licensed under the Apache License, Version 2.0 (the "License");
+.\" you may not use this file except in compliance with the License.
+.\" You may obtain a copy of the License at
+.\"
+.\" https://www.apache.org/licenses/LICENSE-2.0
+.\"
+.\" Unless required by applicable law or agreed to in writing, software
+.\" distributed under the License is distributed on an "AS IS" BASIS,
+.\" WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+.\" See the License for the specific language governing permissions and
+.\" limitations under the License.
+.TH FIDI_LINT 1 2018-12-29
+.SH NAME
+fidi_lint \- A lint checker for fidi input files
+.SH SYNOPSIS
+.B fidi_lint
+.RI "<request file>"
+.br
+.RI "cat <request file> |"
+.B fidi_lint
+.br
+.RI "cat <request file> |"
+.B fidi_lint \-
+.SH DESCRIPTION
+This manual page documents the
+.B fidi_lint
+syntax and sanity checker for
+.B fidi (φίδι)
+request files. (See
+.BR fidi_request (5)
+for details on the request language).  At the simplest level: this is
+a simple HTTP application that talks to other instances of itself. The
+number and targets of these calls are defined by the input
+request.
+.PP
+The request describes a series of calls between HTTP servers
+simulating the behaviour of a service being mocked, often starting
+with a single call, and the cascade of calls that result by the first
+server making more HTTP requests. Essentially, the request defines:
+.IP Nodes 4
+all the nodes (with a host and port, or a URL) touched in the sequence
+of calls.
+.IP Calls
+It also defines all the calls (edges between nodes, with
+source and destinations, and call attributes). In most cases this will
+describe a directed graph.
+.PP
+\fBfidi_lint\fP checks the input request for syntax errors; and makes
+a best effort attempt to recover from errors (popping current state
+and discarding tokens until it re-establishes a good state) in order
+to find as many errors in the input in the same check.
+.PP
+If the request contains no syntax errors,
+.B fidi_lint
+runs sanity checks (ensures that arguments that should be numeric are
+indeed so, and that they are within bound, for example, and that the
+host attribute list has sufficient information to succesfully make a
+call). Any issues discovered are reported.
+.PP
+Finally,
+.B fidi_lint
+produces a desciption of the graph, annotating each edge with the call
+sequence, in a format that can be fed to
+.RI dot
+to produce a visual representation of the request.
+.SH OPTIONS
+These programs follow the usual GNU command line syntax, with long
+options starting with two dashes (`\-').
+A summary of options is included below.
+.TP
+.B \-h, \-\-help
+Show summary of options, and exit.
+.TP
+.B \-v, \-\-version
+Show version of program, and exit.
+.TP
+.B \-
+An indication that
+.B fidi_lint
+should read the request to be checked from the standard input..
+.SH EXAMPLES
+Given the following input:
+.PP
+.RS 4
+.EX
+fidi_lint << EOF
+client    [ hostname = "127.0.0.1", port = 8001, ]
+frontend  [ hostname = "127.0.0.1", port = 8002, ]
+[
+  predelay = 12,
+  postdelay = 20,
+  response  = 200,
+  -> frontend repeat = 2 sequence = 1 [
+      predelay = 12,
+      postdelay = 20,
+      response  = 200,
+    ]
+]
+EOF
+.EE
+.RE
+.PP
+.B fidi_lint
+produces the output
+.PP
+.RS
+.EX
+digraph fidi {
+  node [shape=record];
+  client [ label="{hostname=127.0.0.1|port=8001|client}" ];
+  frontend [ label="{hostname=127.0.0.1|port=8002|frontend}" ];
+
+  Source -> TopNode [ label="1"]
+    // postdelay = 20,
+    // predelay = 12,
+    // response = 200,
+
+  TopNode -> frontend [ label="1.1"]
+    // postdelay = 20,
+    // predelay = 12,
+    // response = 200,
+}
+.EE
+.RE
+.PP
+The output can then be fed to
+.B dot(1)
+to produce, say, a
+.RI .png
+format graph.
+.SH "SEE ALSO"
+.BR fidi_app (1),
+.BR fidi_request (5),
+.BR dot (1).
+.SH BUGS
+None known so far.
+.SH AUTHOR
+Manoj Srivastava <srivasta@google.com>

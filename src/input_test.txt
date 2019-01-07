@@ -1,0 +1,12 @@
+client    [ hostname = "127.0.0.1", port = 8001, ]
+frontend  [ hostname = "127.0.0.1", port = 8002, ]
+[
+  predelay = 12,
+  postdelay = 20,
+  response  = 200,
+  -> frontend repeat = 2 sequence = 1 [
+      predelay = 12,
+      postdelay = 20,
+      response  = 200,
+    ]
+]

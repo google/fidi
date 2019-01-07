@@ -1,0 +1,26 @@
+Files: third_party/autoconf-archive/ax_compare_version.m4
+License: GNU-All-Permissive-License
+
+Copyright (c) 2008 Tim Toolan <toolan@ele.uri.edu>
+
+Copying and distribution of this file, with or without modification, are
+permitted in any medium without royalty provided the copyright notice
+and this notice are preserved. This file is offered as-is, without any
+warranty.
+
+​------------------
+Files: third_party/autoconf-archive/ax_prog_bison_version.m
+License: GNU-All-Permissive-License
+
+Copyright (c) 2015 Jonathan Rajotte-Julien <jonathan.rajotte-julien@efficios.com>
+
+Copying and distribution of this file, with or without modification, are
+permitted in any medium without royalty provided the copyright notice
+and this notice are preserved. This file is offered as-is, without any
+warranty.
+
+
+​------------------
+local_modifications:
+    "LICENSE file has been created for compliance purposes. "
+    "Not included in original distribution."
