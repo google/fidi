@@ -1,0 +1,21 @@
+Document: fidi
+Title: Service mock framework fidi  (φίδι) Manual
+Author: Manoj Srivastava <srivasta@google.com>
+Abstract: (φίδι) service mock system for testing infrastructure
+ The goal of φίδι (fidi) is to model some aspects of arbitrarily
+ complex services, and simulate the behaviour of the service business
+ logic (without actually containing any real business logic or
+ complexity) in presence of external stimuli. Each instance of the
+ φίδι (fidi) application can mock a node in the complex, client
+ serfver service that it is mocking. Different instances of φίδι
+ (fidi) talk to other instanceds of themselves, like a snake (φίδι)
+ eating its tail.φίδι (fidi) also simulates fault injection symptoms,
+ which allows the simulation of normal behaviour as well as incidents
+ and recovery. The motivation is to test the behaviour of the
+ infrastructure, monitoring, alerting and logging systems, while
+ mocking an actual service.
+Section: Network/Monitoring
+
+Format: HTML
+Index: /usr/share/doc/fidi/html/index.html
+Files: /usr/share/doc/fidi/html/*.html
