@@ -1,0 +1,20 @@
+frontend  [ hostname = "beta.gcp.com",port = 8002,]
+cache    [ hostname = "gamma.gcp.com",port = 8003, ]
+&&
+[
+  predelay = 12,
+  postdelay = 20,
+  response  = 2000,
+  -> frontend repeat   = 1 sequence = 1 [
+      predelay = 12,
+      postdelay = 20,
+      response  = 200,
+      -> cache [
+           repeat   = 1,
+           sequence = 1,
+           predelay = 23,
+           postdelay = 980ms,
+           response = 200ms,
+        ]
+    ]
+]

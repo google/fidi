@@ -1,0 +1,54 @@
+client   [ hostname = "127.0.0.1", port = 8001, ]
+frontend [ hostname = "127.0.0.1", port = 8002, ]
+cache    [ hostname = "127.0.0.1", port = 8003, ]
+backend  [ hostname = "127.0.0.1", port = 8004, ]
+archive  [ hostname = "127.0.0.1", port = 8005, ]
+[
+  predelay = 12,
+  postdelay = 20,
+  response  = 200,
+  -> frontend repeat   = 1 sequence = 1 [
+      predelay = 12,
+      postdelay = 20,
+      response  = 200,
+      -> cache [
+           repeat   = 1,
+           sequence = 1,
+           predelay = 23,
+           postdelay = 980,
+           response = 200,
+        ]
+    ]
+  -> frontend repeat=5 sequence=2 [
+      predelay = 18,
+      postdelay = 244,
+      response = 302,
+      -> cache [
+           repeat   = 1,
+           sequence = 1,
+           predelay = 23,
+           postdelay = 980,
+           response = 200,
+        ]
+    ]
+  -> frontend repeat = 1 sequence = 3 [
+      predelay = 23,
+      postdelay = 980,
+      response = 200,
+      -> cache repeat   = 1 sequence = 1 [
+           predelay = 23,
+           postdelay = 980,
+           response = 200,
+        ]
+      -> backend repeat   = 2 sequence = 2 [
+          predelay = 18,
+          postdelay = 1280,
+          response = 200,
+          -> archive repeat   = 1 sequence = 1 [
+              predelay = 18,
+              postdelay = 1280,
+              response = 200,
+           ]
+        ]
+    ]
+]

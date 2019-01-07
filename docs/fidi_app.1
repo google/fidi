@@ -1,0 +1,96 @@
+.\" // Copyright 2018-2019 Google LLC
+.\"
+.\" Licensed under the Apache License, Version 2.0 (the "License");
+.\" you may not use this file except in compliance with the License.
+.\" You may obtain a copy of the License at
+.\"
+.\" https://www.apache.org/licenses/LICENSE-2.0
+.\"
+.\" Unless required by applicable law or agreed to in writing, software
+.\" distributed under the License is distributed on an "AS IS" BASIS,
+.\" WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+.\" See the License for the specific language governing permissions and
+.\" limitations under the License.
+.TH FIDI_APP 1 2018-12-29
+.SH NAME
+fidi_app \- A node in the service mock application fidi (φίδι)
+.SH SYNOPSIS
+.B fidi_app
+.RI [ options ]
+.SH DESCRIPTION
+This manual page documents the
+.B fidi_app
+command. Each instance of
+.B fidi_app
+mocks the behaviour of a single server in the service being mocked by
+.B fidi (φίδι);
+At the simplest level this is a basic HTTP application that talks to
+other instances of itself. The number and targets of these calls are
+defined by the input request. Indeed, all aspects of the applications
+behaviour are controlled by the input request, so the behaviour
+modeled by the mocked service may be changed by each successive
+request.  Optionally. The request can also specify the return code,
+the delay before and after making the calls, and the size of random
+text returned as a response.
+.PP
+Each downstream call specification has an integer sequence number and
+a repetition count. The downstream-calls section of the request
+contains the full flow of calls further downstream, to whatever depth
+necessary, nested within the payload. While parsing the request,
+.B fidi (φίδι)
+only needs to parse the parts of the request that instance itself
+needs to make calls to the next level. The details of the nested calls
+can be passed as a blob in the request made to the next level
+downstream service mock application.
+.PP
+Calls are made by
+.B fidi (φίδι)
+in sequence order, with a synchronization point in between calls with
+different sequence numbers (so strictly serially). Calls with the same
+sequence number are made in parallel, with a synchronization mechanism
+to complete all calls before the calls with the next sequence number
+are made. If a call has a repetition count,
+.I repetition count
+number of calls are made in parallel.
+.PP
+To recap,
+.B fidi (φίδι)
+needs to:
+.IP \(bu 3
+parse the request.
+.IP \(bu
+set the response code, modify the response it sends back, mock memory
+utilization
+.IP \(bu
+make one or more calls in a specified sequence, to other fidi (φίδι)
+instances, passing through the (nested) unpacked request content.
+.SH OPTIONS
+These programs follow the usual GNU command line syntax, with long
+options starting with two dashes (`-').
+A summary of options is included below.
+For a complete description, see the Info files.
+.TP
+.B \-h, \-\-help
+Show summary of options, and exit.
+.TP
+.B \-v, \-\-version
+Show version of program, and exit.
+.TP
+.B \-\-daemon
+Run application as a daemon.
+.TP
+.B \-\-umask=mask
+Set the daemon's umask (octal, e.g. 027).
+.TP
+.B \-\-pidfile=path
+Write the process ID of the application to given file.
+.TP
+.B \-p<port_number> \-\-port=<port_number>
+Have the HTTP server listen on local port specified.
+.SH "SEE ALSO"
+.BR fidi_lint (1),
+.BR fidi_request (5).
+.SH BUGS
+None known so far.
+.SH AUTHOR
+Manoj Srivastava <srivasta@google.com>

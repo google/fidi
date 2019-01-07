@@ -1,0 +1,20 @@
+name: "Autoconf Macro Archive"
+description:
+    "Autoconf Macro Archive aims to provide a central repository of"
+    "useful and tested Autoconf macros for software developers around the"
+    "world. This package contains the complete content of the Autoconf"
+
+third_party {
+  url {
+    type: HOMEPAGE
+    value: "http://www.gnu.org/software/autoconf-archive/"
+  }
+  url {
+    type: GIT
+    value: "git://git.sv.gnu.org/autoconf-archive.git"
+  }
+  version: "2017.03.21"
+  last_upgrade_date { year: 2017 month: 03 day: 21 }
+  license_type: NOTICE
+  local_modifications: "Only include two files (unmodified)."
+}

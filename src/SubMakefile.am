@@ -1,0 +1,83 @@
+# Copyright 2018-2019 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+AM_CPPFLAGS += -D_POSIX_C_SOURCE=200112L
+
+# We cant compile these with the warning flags in EXTRA_CPP_WARNINGS
+noinst_LIBRARIES    = libparser.a
+libparser_a_SOURCES = src/fidi_flex_lexer.h             \
+                      src/fidi_scanner.ll src/fidi_scanner.hh \
+                      src/fidi_parser.hh src/fidi_parser.yy
+libparser_a_CPPFLAGS  = $(AM_CPPFLAGS) $(CPPFLAGS)
+
+bin_PROGRAMS += fidi_lint fidi_app
+
+fidi_lint_SOURCES = src/fidi_lint.cc        src/fidi_driver.cc            \
+                    src/fidi_lint_driver.h src/fidi_lint_driver.cc
+
+fidi_lint_CPPFLAGS  = $(EXTRA_CPP_WARNINGS) $(AM_CPPFLAGS)
+fidi_lint_LDFLAGS   = -Wl,-z,relro -Wl,-z,now
+fidi_lint_LDADD     = libparser.a
+
+fidi_app_SOURCES = src/fidi_app.cc src/fidi_driver.h src/fidi_driver.cc   \
+                   src/fidi_app_driver.h src/fidi_app_driver.cc           \
+                   src/fidi_app_caller.h src/fidi_app_caller.cc           \
+                   src/fidi_request_handler_factory.h                     \
+                   src/fidi_request_handler.h src/fidi_request_handler.cc \
+                   src/fidi_server_application.h                          \
+                   src/fidi_server_application.cc
+
+fidi_app_CPPFLAGS   = $(EXTRA_CPP_WARNINGS) $(AM_CPPFLAGS)
+fidi_app_LDFLAGS    = -Wl,-z,relro -Wl,-z,now
+fidi_app_LDADD      = libparser.a
+
+# Depemdencies on headers
+src/fidi_parser.cc: src/config.h
+
+src/fidi_flex_lexer.h: src/fidi_parser.cc src/config.h
+
+src/fidi_driver.h:      src/fidi_flex_lexer.h src/fidi_parser.hh
+src/fidi_driver.cc:     src/fidi_driver.h
+
+src/fidi_scanner.cc src/fidi_scanner.ccc: src/fidi_flex_lexer.h \
+                               src/fidi_driver.h src/fidi_parser.hh \
+                               src/config.h
+
+## --------- Linter -------------------------
+src/fidi_lint_driver.h: src/fidi_driver.h
+src/fidi_lint_driver.cc: src/fidi_lint_driver.h
+
+src/fidi_lint.cc: src/fidi_lint_driver.h
+
+## --------- HTTP Server -------------------------
+src/fidi_app_caller.cc: src/fidi_app_caller.h
+
+src/fidi_app_driver.h:  src/fidi_app_caller.h src/fidi_driver.h
+src/fidi_app_driver.cc: src/fidi_app_driver.h src/fidi_driver.h
+
+src/fidi_request_handler.h: src/fidi_app_driver.h
+src/fidi_request_handler_factory.h src/fidi_request_handler.cc: \
+                                            src/fidi_request_handler.h
+
+src/fidi_server_application.h: src/fidi_request_handler_factory.h
+src/fidi_server_application.cc: src/fidi_server_application.h
+
+src/fidi_app.cc: src/fidi_server_application.h
+
+# The next two rules are to work around a bug in ylwrap
+src/fidi_scanner.ccc: src/fidi_scanner.ll
+	/bin/bash ./build-aux/ylwrap src/fidi_scanner.ll lex.yy.c \
+	                             src/fidi_scanner.cc -- flex
+src/fidi_scanner.cc: src/fidi_scanner.ccc
+	@cp -f $< $@

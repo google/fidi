@@ -1,25 +1,94 @@
-# fidi -- Service Mock Application
+# fidi (φίδι) -- Service Mock Application
 
-This repository contains an application that can mock the behaviour of an server
-in a complex, potentially multi-level service, each instance of the application
-mocking the behaviour of a single client or server in the service.
+The goal of fidi (φίδι) is to model some aspects of arbitrarily complex
+services, and simulate the behaviour of the service business logic (without
+actually containing any real business logic or complexity) in presence of
+external stimuli. Each instance of the φίδι (fidi) application can mock a node
+in the complex, client-server service that it is mocking. Different instances of
+fidi (φίδι) talk to other instances of themselves, like a snake (φίδι) eating
+its tail.
 
-## Motivation
+## Getting Started
 
-## Features
+fidi (φίδι) should be available in any recent Debian based distribution, and
+should be installable as any other package. Alternatively, the latest version of
+fidi (φίδι) should be available on github at https://github.com/srivasta/fidi.
 
-## Building
+## Documentation
 
-### Dependencies
+For the packaged version, full HTML documentation lives in
+<kbd>/usr/share/doc/fidi/html/</kbd>. If you are building from source, the
+documentation lives in <kbd>./docs/html/</kbd> after the build is finished.
 
-you'll need the following dependencies:
+Use documentation is also provided in the form of manual pages. See
+<kbd>fidi_lint (1), fidi_app (1)</kbd> and <kbd>fidi_request (5)</kbd>. In the
+source, these man pages live in the <kbd>./docs/</kbd> directory.
+
+### Prerequisites
+
+If you are using the pre-packaged version of fidi (φίδι), the prerequisites
+should be installed already. If you are planning on building it from source, the
+following packages are required:
 
 -   autoconf
 -   automake
--   flex
+-   A C++ compiler able to handle C++17 (gcc version 8, for example)
+-   make
+-   fex
 -   bison
--   libtool
--   pkg-config
+-   doxygen
+-   graphviz
+-   plantuml
 -   libpoco-dev
 
-## Documentation
+```
+sudo apt install build-essential autoconf automake gcc-8 flex \
+                 bison doxygen graphviz plantuml libpoco-dev
+```
+
+### Installing
+
+If your distribution already contains fidi (φίδι), you should be able to simply
+install the package.
+
+```
+sudo apt install fidi
+```
+
+If you want to install from source, please see the <kbd>INSTALL</kbd> file for
+details.
+
+Once you have run <kbd>make</kbd>, you can test the newly built package with
+
+```shell
+./fidi_lint src/input.txt
+```
+
+## Bug Reporting
+
+You can send fidi (φίδι) bug reports to <srivasta@google.com>.
+
+## Authors
+
+*   **Manoj Srivastava <srivasta@google.com>** - *Initial work* -
+    [github](https://github.com/srivasta)
+
+## License
+
+Copyright 2018-2019 Google LLC
+
+Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+this file except in compliance with the License. You may obtain a copy of the
+License at
+
+https://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied. See the License for the
+specific language governing permissions and limitations under the License.
+
+## Acknowledgments
+
+*   Hat tip **Nick Jones <jonesn@google.com>** for the problem statement and
+    requirements
