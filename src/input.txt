@@ -1,8 +1,10 @@
+// The global definiton of node addresses
 client   [ hostname = "127.0.0.1", port = 8001, ]
 frontend [ hostname = "127.0.0.1", port = 8002, ]
 cache    [ hostname = "127.0.0.1", port = 8003, ]
 backend  [ hostname = "127.0.0.1", port = 8004, ]
 archive  [ hostname = "127.0.0.1", port = 8005, ]
+/* The actual request follows here */
 [
   predelay = 12,
   postdelay = 20,
