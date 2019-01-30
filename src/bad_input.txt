@@ -16,5 +16,19 @@ cache    [ hostname = "gamma.gcp.com",port = 8003, ]
            postdelay = 980ms,
            response = 200ms,
         ]
+  ]
+  /* Runaway comment
+  -> frontend repeat=5 sequence=2 [
+      predelay = 18,
+      postdelay = 244,
+      response = 302,
+      -> cache [
+           repeat   = 1,
+           sequence = 1,
+           predelay = 23,
+           postdelay = 980,
+           response = 200,
+        ]
     ]
+
 ]

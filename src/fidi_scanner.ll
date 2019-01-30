@@ -81,7 +81,7 @@ BLANK  [[:blank:]\r\n]
 NUMBER [[:digit:]]
 STRING \"[^"]*\"
 IDENT  [a-zA-Z]([a-zA-Z0-9_]*)
-
+COMMENT [/][*][^*]*[*]+([^*/][^*]*[*]+)*[/]
 %%
 
 %{          /** Code executed at the beginning of yylex **/
@@ -94,7 +94,17 @@ IDENT  [a-zA-Z]([a-zA-Z0-9_]*)
 <INITIAL>"source"           {return token::SOURCE;}
 
 <INITIAL,EDGEDEF>"="        {return token::EQUALS;}
-<INITIAL,EDGEDEF>{BLANK}*   {}
+<INITIAL,EDGEDEF>{BLANK}*   { /* DO NOTHING */ }
+<INITIAL,EDGEDEF>"//".*     { /* DO NOTHING */ }
+<INITIAL,EDGEDEF>{COMMENT}  { /* DO NOTHING */ }
+<INITIAL,EDGEDEF>[/][*]     {
+#ifdef HAVE_BISON_WITH_EXCEPTIONS
+     throw fidi::Parser::syntax_error(*loc, "Runaway comment: "
+                                      + std::string(yytext, yyleng));
+#else
+     return static_cast<token_type>(*yytext);
+#endif
+}
 <EDGEDEF>"sequence"         {return token::SEQUENCE;}
 <EDGEDEF>"repeat"           {return token::REPEAT;}
 <INITIAL,EDGEDEF>{IDENT}    {yylval->build< std::string >( yytext );
