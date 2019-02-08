@@ -73,7 +73,7 @@ fidi::FidiServerApplication::initialize(Poco::Util::Application& self) {
       Poco::Logger::create("ConsoleLogger", console_formatting_channel_p,
                            Poco::Message::PRIO_INFORMATION);
   Poco::Logger& file_logger = Poco::Logger::create(
-      "FileLogger", file_formatting_channel_p, Poco::Message::PRIO_WARNING);
+      "FileLogger", file_formatting_channel_p, Poco::Message::PRIO_DEBUG);
 
   console_logger.information("Fidi Server initialized.");
   file_logger.information("Fidi Server initialized.");  // this goes nowhere

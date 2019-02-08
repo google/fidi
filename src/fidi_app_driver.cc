@@ -43,7 +43,7 @@ fidi::AppDriver::~AppDriver() {
 
 void
 fidi::AppDriver::ParseHelper(std::istream &stream) {
-  Poco::Logger::get("FileLogger").information("Start parsing");
+  Poco::Logger::get("FileLogger").trace("Start parsing");
 
   delete parser_;
   parse_errors_.clear();
@@ -100,7 +100,6 @@ fidi::AppDriver::Execute(std::ostream &stream) {
   Poco::ThreadPool  tp(16,     // Min threads
                       1024);  // Max threads
   Poco::TaskManager tm(tp);
-  Poco::Logger::get("FileLogger").information("Handle request");
   Poco::Logger::get("ConsoleLogger").information("Handle request");
 
   // The first thing is to handle the specific things for this request
@@ -143,7 +142,41 @@ fidi::AppDriver::Execute(std::ostream &stream) {
     tm.joinAll();
   }
 
-  // All the calls are done.
+  // All the calls are done. First, let us log messages
+  if (top_attributes_.find("log_trace") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger").trace(top_attributes_["log_trace"]);
+  }
+
+  if (top_attributes_.find("log_debug") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger").debug(top_attributes_["log_debug"]);
+  }
+
+  if (top_attributes_.find("log_information") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger")
+        .information(top_attributes_["log_information"]);
+  }
+
+  if (top_attributes_.find("log_notice") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger").notice(top_attributes_["log_notice"]);
+  }
+
+  if (top_attributes_.find("log_warning") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger").warning(top_attributes_["log_warning"]);
+  }
+
+  if (top_attributes_.find("log_error") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger").error(top_attributes_["log_error"]);
+  }
+
+  if (top_attributes_.find("log_critical") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger").critical(top_attributes_["log_critical"]);
+  }
+
+  if (top_attributes_.find("log_fatal") != top_attributes_.end()) {
+    Poco::Logger::get("FileLogger").fatal(top_attributes_["log_fatal"]);
+  }
+
+  // Now for the second part of the delay
   if (top_attributes_.find("postdelay") != top_attributes_.end()) {
     std::this_thread::sleep_for(
         std::chrono::milliseconds(std::stol(top_attributes_["postdelay"])));
