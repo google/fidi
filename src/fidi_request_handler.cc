@@ -30,18 +30,29 @@
 void
 fidi::FidiRequestHandler::handleRequest(Poco::Net::HTTPServerRequest & req,
                                         Poco::Net::HTTPServerResponse &resp) {
-  std::ostream &response_stream = resp.send();
   Poco::Logger::get("ConsoleLogger")
       .information("Request from " + req.clientAddress().toString());
   bool failed = false;
   resp.setChunkedTransferEncoding(true);
   resp.setContentType("text/html");
-  Poco::URI uri(req.getURI());
+  Poco::URI     uri(req.getURI());
+  std::ostream &response_stream = resp.send();
 
   if (uri.getPath().compare("/healthz") == 0) {
     Poco::Logger::get("FileLogger").trace("Healthz");
     // TODO: Check for and set a not OK status if we are not healthy
-    resp.setStatus(Poco::Net::HTTPResponse::HTTP_OK);
+    response_stream << "<html><head><title>Fidi  (φίδι) -- a service mock "
+                       "instance\n</title></head>\n"
+                       "<body>\n";
+    if (driver_.get_health() == true) {
+      resp.setStatus(Poco::Net::HTTPResponse::HTTP_OK);
+      response_stream << "OK\n";
+    } else {
+      resp.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
+      response_stream << "Failure\n";
+    }
+    response_stream << "</body></html>";
+    response_stream.flush();
     return;
   }
   response_stream << "<html><head><title>Fidi  (φίδι) -- a service mock "
