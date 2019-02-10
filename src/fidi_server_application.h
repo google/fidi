@@ -134,13 +134,34 @@ namespace fidi {
     /// \brief Set the port the server listens on based on the --port option
     ///
     /// \param[in] name the name of the option (port, ignored)
-    /// \param[in] value (ignored)
+    /// \param[in] value A port number in string form
     void set_port(const std::string& name, const std::string& value);
 
+    /// \brief Set the logging directory based on --log-dir option
+    ///
+    /// \param[in] name the name of the option (log-fir, ignored)
+    /// \param[in] value The path to an xisting directory
+    void SetLogDirectory(const std::string& name, const std::string& value);
+
+    /// \brief Set the log file name based on --log-file option
+    ///
+    /// \param[in] name the name of the option (log-fir, ignored)
+    /// \param[in] value File name for the log file (created if needed).
+    void SetLogFile(const std::string& name, const std::string& value);
+
    private:
-    bool help_requested_;       ///< Stores where --help was on the
-                                ///< command line
-    Poco::UInt16 port_ = 9001;  ///< The port the server listens on
+    /// Internal helper function to create a console logger
+    void CreateConsoleLogger(void);
+
+    /// Internal helper function to create a file logger
+    void CreateFileLogger(void);
+
+    bool help_requested_;          ///< Stores where --help was on the
+                                   ///< command line
+    Poco::UInt16 port_    = 9001;  ///< The port the server listens on
+    std::string  log_dir_ = ".";   ///< The directory used for logging, default
+                                   ///< current working directgory
+    std::string log_file_ = "fidi_server.log";  ///< The log file name
   };
 }  // namespace fidi
 

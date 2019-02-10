@@ -85,6 +85,16 @@ Set the daemon's umask (octal, e.g. 027).
 .B \-\-pidfile=path
 Write the process ID of the application to given file.
 .TP
+.B \-d<logging_directory> \-\-log\-dir=<logging_directory>
+Specify a pre-existing directory where the log file should be
+place. The
+.I fidi_app
+process must hace write access to the directory.
+.TP
+.B \-f<log_file_name> \-\-log\-file=<log_file_name>
+The name of tghe log file to be created in the pre-existing
+directory. The file will be created id required.
+.TP
 .B \-p<port_number> \-\-port=<port_number>
 Have the HTTP server listen on local port specified.
 .SH "SEE ALSO"
