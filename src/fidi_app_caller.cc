@@ -33,6 +33,9 @@ fidi::AppCaller::runTask() {
   try {
     Poco::URI                    uri(url_);
     Poco::Net::HTTPClientSession session(uri.getHost(), uri.getPort());
+    if (timeout_sec_ > 0 || timeout_usec_ > 0) {
+      session.setTimeout(Poco::Timespan(timeout_sec_, timeout_usec_));
+    }
 
     // prepare path
     std::string path(uri.getPathAndQuery());
