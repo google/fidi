@@ -132,6 +132,10 @@ timeout on downstream HTTP requests.
 This is the rest of the timeout time (a fraction of a second),
 represented as the number of microseconds.  It is always less
 than one million.
+.IP healthy
+The value is a boolean instructing the application to be healthy, or
+not, when responding to future /healthz requests. This only applies to
+health checks, and does not affect request handling.
 .RE
 .PP
 Interspersed in these attributes can be specifications for calls the
@@ -161,7 +165,7 @@ parallel.
 .B fidi (φίδι)
 accepts
 .I C
-syle comments.For example:
+style comments. For example:
 .RS 6
 /* This is a comment. */
 .RE
