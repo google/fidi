@@ -338,6 +338,56 @@
  * of bytes of memory the fidi_app shall allocate during handling of
  * the request.
  *
+ * \subsubsection k6 log_trace
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι) as a trace log.  By default these messages are ignored.
+ *
+ * \subsubsection k7 log_debug
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι) as a debug log.
+ *
+ * \subsubsection k8 log_information
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι) as a information log.
+ *
+ * \subsubsection k9 log_notice
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι).
+ *
+ * \subsubsection k10 log_warning
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι).
+ *
+ * \subsubsection k11 log_error
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι).
+ *
+ * \subsubsection k12 log_critical
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι).
+ *
+ * \subsubsection k13 log_fatal
+ *
+ * A string (preferably single line) to be (possibly) logged to the log file by
+ * fidi (φίδι).
+ *
+ * \subsubsection k14 timeout_sec
+ *
+ * This represents the number of whole seconds of time to set as a timeout on
+ * downstream HTTP requesus.
+ *
+ * \subsubsection k15 timeout_usec
+ *
+ * This is the rest of the timeout time (a fraction of a second), represented as
+   the number of microseconds.  It is always less than one million.
+ *
  * \subsection calledge Calls
  *
  * Interspersed in these attributes can be specifications for calls

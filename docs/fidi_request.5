@@ -125,6 +125,13 @@ file by
 A string (preferably single line) to be (possibly) logged to the log
 file by
 .B fidi (φίδι).
+.IP timeout_sec
+This represents the number of whole seconds of time to set as a
+timeout on downstream HTTP requests.
+.IP timeout_usec
+This is the rest of the timeout time (a fraction of a second),
+represented as the number of microseconds.  It is always less
+than one million.
 .RE
 .PP
 Interspersed in these attributes can be specifications for calls the
