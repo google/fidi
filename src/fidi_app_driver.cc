@@ -34,8 +34,10 @@
 #include <string>
 #include <thread>  // std::this_thread::sleep_for
 
-bool       fidi::AppDriver::healthy_ = true;
-std::mutex fidi::AppDriver::health_mtx_;
+bool                                  fidi::AppDriver::healthy_ = true;
+std::mutex                            fidi::AppDriver::health_mtx_;
+std::chrono::steady_clock::time_point fidi::AppDriver::unresponsive_until_ =
+    std::chrono::steady_clock::now();
 
 fidi::AppDriver::~AppDriver() {
   delete scanner_;
@@ -106,10 +108,22 @@ fidi::AppDriver::get_health(void) {
   return is_healthy;
 }
 
+bool
+fidi::AppDriver::IsResponsive(void) {
+  std::chrono::steady_clock::time_point limit;
+  std::chrono::steady_clock::time_point now = std::chrono::steady_clock::now();
+  health_mtx_.lock();
+  limit = unresponsive_until_;
+  health_mtx_.unlock();
+  return now > limit;
+}
+
 std::ostream &
 fidi::AppDriver::Execute(std::ostream &stream) {
-  long timeout_sec  = 0;
-  long timeout_usec = 0;
+  long timeout_sec           = 0;
+  long timeout_usec          = 0;
+  long unresponsive_for_sec  = 0;
+  long unresponsive_for_usec = 0;
 
   // Create a threadpool (FIXME: make max threads a config)
   Poco::ThreadPool  tp(16,     // Min threads
@@ -136,6 +150,21 @@ fidi::AppDriver::Execute(std::ostream &stream) {
     timeout_usec = std::stol(top_attributes_["timeout_usec"]);
   }
 
+  if (top_attributes_.find("unresponsive_for_sec") != top_attributes_.end()) {
+    unresponsive_for_sec = std::stol(top_attributes_["unresponsive_for_sec"]);
+  }
+
+  if (top_attributes_.find("unresponsive_for_usec") != top_attributes_.end()) {
+    unresponsive_for_usec = std::stol(top_attributes_["unresponsive_for_usec"]);
+  }
+  if (unresponsive_for_sec > 0 || unresponsive_for_usec > 0) {
+    health_mtx_.lock();
+    unresponsive_until_ = std::chrono::steady_clock::now() +
+                          std::chrono::duration_cast<std::chrono::microseconds>(
+                              std::chrono::seconds(unresponsive_for_sec)) +
+                          std::chrono::microseconds(unresponsive_for_usec);
+    health_mtx_.unlock();
+  }
   // OK. Now to deal with all out calls
   while (!edge_attributes_.empty()) {
     auto downstream_call_sequence_number =

@@ -391,8 +391,23 @@
  * \subsubsection k16 healthy
  *
  * The value is a boolean instructing the application to be healthy, or not,
- * when responding to future /healthz requests. This onlyu applies to health
+ * when responding to future /healthz requests. This only applies to health
  * checks, and does not affect the respnse to requests.
+ *
+ * \subsubsection k17  unresponsive_for_sec
+ *
+ * The value is a the number in whole seconds that the application node should
+ * be unresponsive for (as in drop all requests, including health checks (in
+ * this context drop means sending no respnse back; there is still something
+ * listening on the port and handling requests. The request will eventually time
+ * out with an empty server response)). This can be used, for instance, to
+ * simulate a restart.
+ *
+ * \subsubsection k18  unresponsive_for_usec
+ *
+ * The value is a the number of fractional microseconds (less than a million)
+ * that the application node should be unresponsive for, in addioton to the
+ * unresponsive_for_sec value above.
  *
  * \subsection calledge Calls
  *
