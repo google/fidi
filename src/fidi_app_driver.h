@@ -27,6 +27,7 @@
 #ifndef FIDI_APP_DRIVER_H
 #  define FIDI_APP_DRIVER_H
 
+#  include <chrono>
 #  include <mutex>
 
 #  include <Poco/Net/HTTPServerResponse.h>
@@ -116,12 +117,18 @@ namespace fidi {
     /// \return boolean true if the application is healthy
     bool get_health(void);
 
+    /// \brief Is the application responding right now?
+    /// \return boolean true if the application is responsive
+    bool IsResponsive(void);
+
    private:
     fidi::Parser *parser_ = nullptr;  ///< A reference to the parser
                                       ///< created for handling this
                                       ///< request
     static bool       healthy_;  ///< Whether application is currently healthy
     static std::mutex health_mtx_;  ///< Lock for the shared boolean
+    static std::chrono::steady_clock::time_point
+        unresponsive_until_;  ///< Do not respont until this time
 
     Poco::Net::HTTPServerResponse *resp_ =
         nullptr;  ///< The response code for the request
