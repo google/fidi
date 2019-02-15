@@ -81,3 +81,14 @@ src/fidi_scanner.ccc: src/fidi_scanner.ll
 	                             src/fidi_scanner.cc -- flex
 src/fidi_scanner.cc: src/fidi_scanner.ccc
 	@cp -f $< $@
+
+# This is a full blown Debian image based docker image, along with
+# the POCO shared libraries we need. The base image also provides some
+# shared libraries that fidi needs.
+docker-image-full: src/Dockerfile fidi_lint fidi_app
+	@test ! -d fidi-docker || mkdir -p fidi-docker/root
+	$(MAKE) DESTDIR=fidi-docker/root install
+	cd fidi-docker &&                                    \
+           docker build --network=host -f ../src/Dockerfile  \
+               -t $(PACKAGE_NAME):$(PACKAGE_VERSION) .
+.PHONY: docker-image-full

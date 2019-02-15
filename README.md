@@ -64,6 +64,16 @@ Once you have run <kbd>make</kbd>, you can test the newly built package with
 ./fidi_lint src/input.txt
 ```
 
+There is a rudimentary <kbd>Dockerfile</kbd> provided, that creates a full
+Debian Sid based docker image with fidi installed. You can create it from source
+by running
+
+```shell
+make docker-image-full
+```
+
+after the build has completed.
+
 ## Bug Reporting
 
 You can send fidi (φίδι) bug reports to <srivasta@google.com>.
