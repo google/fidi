@@ -18,8 +18,10 @@ fidi_request \- the request format of the fidi  (φίδι) service mock applicat
 The request looks something like this:
 .PP
 .EX
+// Comment: node declarations
 client    [ hostname = "127.0.0.1", port = 8001, ]
 frontend  [ url = "http://127.0.0.1:8002/fidi", ]
+/* The requests follow */
 [
   predelay = 12,
   postdelay = 20,
@@ -113,6 +115,20 @@ have defined here; to an arbitrary depth.
 Any number of calls can be defined. Calls with the same sequence
 number shall be made in parallel; repeated calls are always made in
 parallel.
+.SS Comments
+.B fidi (φίδι)
+accepts
+.I C
+and
+.I C++/java
+syle comments.For example:
+.RS 6
+/* This is a comment. */
+.RE
+.RS 6
+// As is this one.
+.RE
+Comments may be placed anywhere in the input request body.
 .SH "SEE ALSO"
 .BR fidi_app (1),
 .BR fidi_lint (1).
