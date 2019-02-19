@@ -13,7 +13,7 @@
 .\" limitations under the License.
 .TH FIDI_REQUEST 5 2018-12-29
 .SH NAME
-fidi_request \- the request format of the fidi  (φίδι) service mock application
+fidi_request \- request format of the fidi  (φίδι) service mock application
 .SH SYNOPSIS
 The request looks something like this:
 .PP
@@ -90,6 +90,41 @@ The value should be an unsigned integer that represents the number of
 bytes of memory the
 .B fidi_app
 shall allocate during handling of the request.
+.IP log_trace
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι)
+as a trace log.  By default these messages are ignored.
+.IP log_debug
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι)
+as a debug log.
+.IP log_information
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι)
+as a information log.
+.IP log_notice
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι).
+.IP log_warning
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι).
+.IP log_error
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι).
+.IP log_critical
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι).
+.IP log_fatal
+A string (preferably single line) to be (possibly) logged to the log
+file by
+.B fidi (φίδι).
 .RE
 .PP
 Interspersed in these attributes can be specifications for calls the
