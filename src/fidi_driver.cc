@@ -224,6 +224,26 @@ fidi::Driver::SanityChecks(std::string *error_message) {
   if (it != top_attributes_.end()) {
     (void)check_num(it->second, "// Request post-delay ");
   }
+
+  it = top_attributes_.find("timeout_sec");
+  if (it != top_attributes_.end()) {
+    (void)check_num(it->second, "// Request timeout whole seconds ");
+  }
+
+  it = top_attributes_.find("timeout_usec");
+  if (it != top_attributes_.end()) {
+    (void)check_num(it->second, "// Request timeout fractional microseconds ");
+    long usec = std::stol(it->second);
+    if (usec >= 1000000L) {
+      errors++;
+      error_message
+          ->append(
+              "Request timeout fractional microseconds should be less than 1 "
+              "Million: ")
+          .append(it->second);
+    }
+  }
+
   return errors;
 }
 

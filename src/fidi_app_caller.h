@@ -52,11 +52,15 @@ namespace fidi {
     ///
     /// \param[in] name The name for the task
     /// \param[in] dest The URL for the target server
+    /// \param[in] timeout_sec Request timeout whole seconds
+    /// \param[in] timeout_usec Request timeout fractional microseconds
     /// \param[in] content The body of the post request
-    AppCaller(std::string &name, const std::string &dest,
-              const std::string &content) :
+    AppCaller(std::string &name, const std::string &dest, long timeout_sec,
+              long timeout_usec, const std::string &content) :
         Poco::Task(name),
         url_(dest),
+        timeout_sec_(timeout_sec),
+        timeout_usec_(timeout_usec),
         payload_(content){};
 
     /// \brief Destructor
@@ -91,7 +95,10 @@ namespace fidi {
     virtual void runTask();
 
    private:
-    const std::string url_;      ///< The URL we are makeing the request to
+    const std::string url_;  ///< The URL we are makeing the request to
+
+    const long timeout_sec_;   ///< The timeout period (whole seconds)
+    const long timeout_usec_;  ///< The timeout period (fractional microseconds)
     const std::string payload_;  ///< The payload for the request
   };
 
