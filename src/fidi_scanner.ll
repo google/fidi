@@ -95,7 +95,6 @@ COMMENT [/][*][^*]*[*]+([^*/][^*]*[*]+)*[/]
 
 <INITIAL,EDGEDEF>"="        {return token::EQUALS;}
 <INITIAL,EDGEDEF>{BLANK}*   { /* DO NOTHING */ }
-<INITIAL,EDGEDEF>"//".*     { /* DO NOTHING */ }
 <INITIAL,EDGEDEF>{COMMENT}  { /* DO NOTHING */ }
 <INITIAL,EDGEDEF>[/][*]     {
 #ifdef HAVE_BISON_WITH_EXCEPTIONS

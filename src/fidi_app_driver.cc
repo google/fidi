@@ -103,7 +103,7 @@ fidi::AppDriver::Execute(std::ostream &stream) {
   Poco::ThreadPool  tp(16,     // Min threads
                       1024);  // Max threads
   Poco::TaskManager tm(tp);
-  Poco::Logger::get("ConsoleLogger").information("Handle request");
+  Poco::Logger::get("ConsoleLogger").trace("Handle request executing");
 
   // The first thing is to handle the specific things for this request
   if (top_attributes_.find("response") != top_attributes_.end()) {
@@ -128,7 +128,9 @@ fidi::AppDriver::Execute(std::ostream &stream) {
   while (!edge_attributes_.empty()) {
     auto downstream_call_sequence_number =
         edge_attributes_.top().edge_attr.second;
-
+    Poco::Logger::get("ConsoleLogger")
+        .debug("Call sequence " +
+               std::to_string(downstream_call_sequence_number));
     while (!edge_attributes_.empty() &&
            downstream_call_sequence_number ==
                edge_attributes_.top().edge_attr.second) {
@@ -141,7 +143,7 @@ fidi::AppDriver::Execute(std::ostream &stream) {
       if (reps < 1) { reps = 1; }
       for (int i = 1; i <= reps; ++i) {
         std::string taskname(call_details.name);
-        taskname.append("_").append(std::to_string(reps));
+        taskname.append("_").append(std::to_string(i));
         tm.start(new AppCaller(
             taskname, url, timeout_sec, timeout_usec,
             node_glob_ + call_details.blob));  // Task Manager takes over

@@ -26,10 +26,8 @@
 
 void
 fidi::AppCaller::runTask() {
-  Poco::Logger::get("FileLogger")
-      .information("Making call to " + url_ + "\n\t" + payload_);
   Poco::Logger::get("ConsoleLogger")
-      .information("Making call to " + url_ + "\n\t" + payload_);
+      .trace("Making call to " + url_ + "\n\t" + payload_);
   try {
     Poco::URI                    uri(url_);
     Poco::Net::HTTPClientSession session(uri.getHost(), uri.getPort());
@@ -58,8 +56,8 @@ fidi::AppCaller::runTask() {
     std::string             rbody;
     session.receiveResponse(res) >> rbody;
 
-    Poco::Logger::get("FileLogger").information(res.getReason());
-    Poco::Logger::get("ConsoleLogger").information(res.getReason());
+    Poco::Logger::get("FileLogger").debug(res.getReason());
+    Poco::Logger::get("ConsoleLogger").debug(res.getReason());
   } catch (Poco::Exception& ex) {
     Poco::Logger::get("FileLogger").error(ex.displayText());
     Poco::Logger::get("ConsoleLogger").error(ex.displayText());
