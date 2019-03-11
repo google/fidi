@@ -96,6 +96,9 @@ fidi::AppDriver::GetUrl(std::string &node_name) {
 
 std::ostream &
 fidi::AppDriver::Execute(std::ostream &stream) {
+  long timeout_sec  = 0;
+  long timeout_usec = 0;
+
   // Create a threadpool (FIXME: make max threads a config)
   Poco::ThreadPool  tp(16,     // Min threads
                       1024);  // Max threads
@@ -111,6 +114,14 @@ fidi::AppDriver::Execute(std::ostream &stream) {
   if (top_attributes_.find("predelay") != top_attributes_.end()) {
     std::this_thread::sleep_for(
         std::chrono::milliseconds(std::stol(top_attributes_["predelay"])));
+  }
+
+  if (top_attributes_.find("timeout_sec") != top_attributes_.end()) {
+    timeout_sec = std::stol(top_attributes_["timeout_sec"]);
+  }
+
+  if (top_attributes_.find("timeout_usec") != top_attributes_.end()) {
+    timeout_usec = std::stol(top_attributes_["timeout_usec"]);
   }
 
   // OK. Now to deal with all out calls
@@ -132,7 +143,7 @@ fidi::AppDriver::Execute(std::ostream &stream) {
         std::string taskname(call_details.name);
         taskname.append("_").append(std::to_string(reps));
         tm.start(new AppCaller(
-            taskname, url,
+            taskname, url, timeout_sec, timeout_usec,
             node_glob_ + call_details.blob));  // Task Manager takes over
       }
       // Done with this call, on to the next one in this sequence
