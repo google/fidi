@@ -31,8 +31,6 @@ void
 fidi::FidiRequestHandler::handleRequest(Poco::Net::HTTPServerRequest & req,
                                         Poco::Net::HTTPServerResponse &resp) {
   std::ostream &response_stream = resp.send();
-  Poco::Logger::get("FileLogger")
-      .information("Request from " + req.clientAddress().toString());
   Poco::Logger::get("ConsoleLogger")
       .information("Request from " + req.clientAddress().toString());
   bool failed = false;
@@ -66,18 +64,23 @@ fidi::FidiRequestHandler::handleRequest(Poco::Net::HTTPServerRequest & req,
     resp.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
     response_stream << "    <h2>Parse Syntax Errors</h2>\n\n\n"
                     << parse_errors.second;
+    Poco::Logger::get("ConsoleLogger").error("Errors " + parse_errors.second);
+    Poco::Logger::get("FileLogger").error("Errors " + parse_errors.second);
     failed = true;
   }
   std::string warning_message;
   int         warning = driver_.SanityChecks(&warning_message);
   if (warning) {
     resp.setStatus(Poco::Net::HTTPResponse::HTTP_BAD_REQUEST);
-    response_stream << "    <h2>Parse  Errors</h2>\n\n\n" << warning_message;
+    response_stream << "    <h2>Warning</h2>\n\n\n" << warning_message;
+    Poco::Logger::get("ConsoleLogger").warning("Warnings " + warning_message);
+    Poco::Logger::get("FileLogger").warning("Warnings " + warning_message);
     failed = true;
   }
   if (!failed) {
     driver_.set_resp(resp);
     try {
+      Poco::Logger::get("ConsoleLogger").trace("Request parsed OK.");
       driver_.Execute(response_stream);
     } catch (std::bad_alloc &ba) {
       std::cerr << "Got memory error: " << ba.what() << "\n";
@@ -89,8 +92,8 @@ fidi::FidiRequestHandler::handleRequest(Poco::Net::HTTPServerRequest & req,
   response_stream.flush();
 
   Poco::Logger::get("FileLogger")
-      .information("Response sent for count=" + std::to_string(count_) +
-                   " and URI=" + req.getURI() + "\n");
+      .trace("Response sent for count=" + std::to_string(count_) +
+             " and URI=" + req.getURI() + "\n");
 }
 
 //

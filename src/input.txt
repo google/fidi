@@ -1,4 +1,4 @@
-// The global definiton of node addresses
+/* The global definiton of node addresses */
 client   [ hostname = "127.0.0.1", port = 8001, ]
 frontend [ hostname = "127.0.0.1", port = 8002, ]
 cache    [ hostname = "127.0.0.1", port = 8003, ]

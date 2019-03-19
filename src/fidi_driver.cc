@@ -67,7 +67,7 @@ fidi::Driver::HandleNode(const std::string &                       node_name,
   if (it == nodes_.end()) {
     nodes_[node_name] = node_list;
   } else {
-    it->second.insert(node_list.begin(), node_list.end());
+    it->second.insert(node_list.cbegin(), node_list.cend());
   }
   // The grammar requires hostnames to be in double quotes, we remove those
   // here.

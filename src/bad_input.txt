@@ -5,6 +5,7 @@ cache    [ hostname = "gamma.gcp.com",port = 8003, ]
   predelay = 12,
   postdelay = 20,
   response  = 2000,
+  /* Good comment */
   -> frontend repeat   = 1 sequence = 1 [
       predelay = 12,
       postdelay = 20,

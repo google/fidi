@@ -51,7 +51,7 @@ void
 fidi::FidiServerApplication::CreateConsoleLogger(void) {
   // Create a channel for the logger
   Poco::AutoPtr<Poco::PatternFormatter> pattern_formatter_p(
-      new Poco::PatternFormatter("[%O] %s: %p: %t"));
+      new Poco::PatternFormatter("%E %U:%u%N[%P]:[%O] %s: %p: %t"));
   Poco::AutoPtr<Poco::FormattingChannel> console_formatting_channel_p(
       new Poco::FormattingChannel(pattern_formatter_p));
   Poco::AutoPtr<Poco::ConsoleChannel> console_channel_p(
@@ -119,7 +119,7 @@ fidi::FidiServerApplication::initialize(Poco::Util::Application& self) {
     CreateConsoleLogger();
     CreateFileLogger();
 
-    Poco::Logger::get("ConsoleLogger").information("Fidi Server initialized.");
+    Poco::Logger::get("ConsoleLogger").trace("Fidi Server initialized.");
     Poco::Logger::get("FileLogger")
         .trace("Fidi Server initialized.");  // this goes nowhere
   }
