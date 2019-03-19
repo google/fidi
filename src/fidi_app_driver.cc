@@ -34,6 +34,9 @@
 #include <string>
 #include <thread>  // std::this_thread::sleep_for
 
+bool       fidi::AppDriver::healthy_ = true;
+std::mutex fidi::AppDriver::health_mtx_;
+
 fidi::AppDriver::~AppDriver() {
   delete scanner_;
   scanner_ = nullptr;
@@ -92,6 +95,15 @@ fidi::AppDriver::GetUrl(std::string &node_name) {
     }
   }
   return url;
+}
+
+bool
+fidi::AppDriver::get_health(void) {
+  bool is_healthy;
+  health_mtx_.lock();
+  is_healthy = healthy_;
+  health_mtx_.unlock();
+  return is_healthy;
 }
 
 std::ostream &
@@ -187,6 +199,16 @@ fidi::AppDriver::Execute(std::ostream &stream) {
 
   if (top_attributes_.find("log_fatal") != top_attributes_.end()) {
     Poco::Logger::get("FileLogger").fatal(top_attributes_["log_fatal"]);
+  }
+
+  if (top_attributes_.find("healthy") != top_attributes_.end()) {
+    health_mtx_.lock();
+    if (top_attributes_["healthy"].compare("true") == 0) {
+      healthy_ = true;
+    } else {
+      healthy_ = false;
+    }
+    health_mtx_.unlock();
   }
 
   // Now for the second part of the delay
