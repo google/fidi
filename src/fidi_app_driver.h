@@ -27,6 +27,8 @@
 #ifndef FIDI_APP_DRIVER_H
 #  define FIDI_APP_DRIVER_H
 
+#  include <mutex>
+
 #  include <Poco/Net/HTTPServerResponse.h>
 #  include <Poco/TaskManager.h>
 #  include <Poco/ThreadPool.h>
@@ -53,7 +55,7 @@ namespace fidi {
   class AppDriver : public Driver {
    public:
     /// The default constructor
-    AppDriver() : Driver(), parser_(nullptr), resp_(nullptr){};
+    AppDriver() : Driver(), parser_(nullptr), resp_(nullptr) {}
 
     /// The copy constructor is not used, so declutter.
     AppDriver(const AppDriver &src) = delete;
@@ -110,11 +112,16 @@ namespace fidi {
 
     /// set the response code
     void set_resp(Poco::Net::HTTPServerResponse &resp);
+    /// \brief Is the application healthy right now?
+    /// \return boolean true if the application is healthy
+    bool get_health(void);
 
    private:
     fidi::Parser *parser_ = nullptr;  ///< A reference to the parser
                                       ///< created for handling this
                                       ///< request
+    static bool       healthy_;  ///< Whether application is currently healthy
+    static std::mutex health_mtx_;  ///< Lock for the shared boolean
 
     Poco::Net::HTTPServerResponse *resp_ =
         nullptr;  ///< The response code for the request

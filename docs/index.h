@@ -381,12 +381,18 @@
  * \subsubsection k14 timeout_sec
  *
  * This represents the number of whole seconds of time to set as a timeout on
- * downstream HTTP requesus.
+ * downstream HTTP requests.
  *
  * \subsubsection k15 timeout_usec
  *
  * This is the rest of the timeout time (a fraction of a second), represented as
    the number of microseconds.  It is always less than one million.
+ *
+ * \subsubsection k16 healthy
+ *
+ * The value is a boolean instructing the application to be healthy, or not,
+ * when responding to future /healthz requests. This onlyu applies to health
+ * checks, and does not affect the respnse to requests.
  *
  * \subsection calledge Calls
  *
@@ -425,7 +431,7 @@
  *
  * This is the core component for fidi (φίδι). This module contains
  * a radically simple web server, which uses a new parser to parse
- * each new request. It then uses a priority queue and a threadpool to
+ * each new request. It then uses a priority queue and a thread-pool to
  * make downstream HTTP calls, in series or in parallel, as requested.
  */
 
