@@ -35,7 +35,10 @@ fidi::FidiRequestHandler::handleRequest(Poco::Net::HTTPServerRequest & req,
   bool failed = false;
   resp.setChunkedTransferEncoding(true);
   resp.setContentType("text/html");
-  Poco::URI     uri(req.getURI());
+  Poco::URI uri(req.getURI());
+  // exit immediately if we are unresponsive
+  if (!driver_.IsResponsive()) { return; }
+  // In all other cases we send a response back
   std::ostream &response_stream = resp.send();
 
   if (uri.getPath().compare("/healthz") == 0) {

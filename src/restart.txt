@@ -1,0 +1,25 @@
+/* The global definiton of node addresses */
+client   [ hostname = "127.0.0.1", port = 8001, ]
+frontend [ hostname = "127.0.0.1", port = 8002, ]
+archive  [ hostname = "127.0.0.1", port = 8005, ]
+/* The actual request follows here */
+[
+  predelay = 12,
+  postdelay = 20,
+  response  = 200,
+  unresponsive_for_sec = 30,
+  -> frontend repeat   = 1 sequence = 1 [
+      predelay = 12,
+      postdelay = 20,
+      response  = 200,
+      unresponsive_for_sec = 30,
+      -> archive [
+           repeat   = 1,
+           sequence = 1,
+           predelay = 23,
+           postdelay = 980,
+           response = 200,
+           unresponsive_for_sec = 30,
+        ]
+    ]
+]
