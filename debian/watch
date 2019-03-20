@@ -1,0 +1,10 @@
+# watch control file for uscan
+#
+# See uscan(1) for how to set this file properly
+#  * uupdate(1) for upgrade a source code package
+#  * gbp-import-orig(1) with --uscan for upgrade GIT repo
+# Compulsory line, this is a version 3 file
+version=3
+
+uversionmangle=s/(\d)[_\.\-\+]?(RC|rc|pre|dev|beta|alpha)[.]?(\d*)$/\$1~\$2\$3/ \
+  https://github.com/google/@PACKAGE@/tags .*/(\d[\d\.]*)\.(?:tar.gz|tar.bz2|tar.xz)
