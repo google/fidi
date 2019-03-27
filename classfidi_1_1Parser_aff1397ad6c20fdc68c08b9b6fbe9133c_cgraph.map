@@ -1,0 +1,8 @@
+<map id="fidi::Parser::make_SEQUENCE" name="fidi::Parser::make_SEQUENCE">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser.html#a47c284aa1f23b1e8ed184b6e3ba79ffb" title="fidi::Parser::make\l_IDENT" alt="" coords="183,27,312,69"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser.html#ad2eaf3b3ba8409cd372e618d43567604" title="fidi::Parser::make\l_STRING" alt="" coords="360,27,489,69"/>
+<area shape="rect" id="node4" href="$classfidi_1_1Parser.html#a319d425a719e7cb96b0b966f0e049a77" title="fidi::Parser::make_BLOB" alt="" coords="537,35,708,61"/>
+<area shape="rect" id="node5" href="$classfidi_1_1Parser.html#aac7684f3787d05bc5edc86622548de1a" title="fidi::Parser::make\l_NUMBER" alt="" coords="756,27,885,69"/>
+<area shape="rect" id="node6" href="$classfidi_1_1Parser.html#abecd97899bc771ef862459446be92994" title="Build a parser object. " alt="" coords="941,5,1075,32"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser_1_1semantic__type.html#a7e79223c3c3df6572074ef6e546254d5" title="Prohibit blind copies. " alt="" coords="933,57,1083,98"/>
+</map>

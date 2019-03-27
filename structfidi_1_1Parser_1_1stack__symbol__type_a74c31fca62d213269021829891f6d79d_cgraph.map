@@ -1,0 +1,8 @@
+<map id="fidi::Parser::stack_symbol_type::stack_symbol_type" name="fidi::Parser::stack_symbol_type::stack_symbol_type">
+<area shape="rect" id="node2" href="$structfidi_1_1Parser_1_1by__type.html#a4bb9faad5b72159aafa7cec1e0e76f55" title="fidi::Parser::by_type\l::type_get" alt="" coords="201,5,343,47"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser_1_1semantic__type.html#a943d47e3890d4b8f4ea93c7e9e513d9c" title="fidi::Parser::semantic\l_type::move" alt="" coords="197,71,347,112"/>
+<area shape="rect" id="node4" href="$classfidi_1_1Parser_1_1semantic__type.html#a6364915eebed910a51a53a1e2fe65dc0" title="Accessor to a built T. " alt="" coords="395,37,544,79"/>
+<area shape="rect" id="node5" href="$classfidi_1_1Parser_1_1semantic__type.html#a2e0b62b31f5490a481528e98be70d513" title="Destroy the stored T. " alt="" coords="395,103,544,144"/>
+<area shape="rect" id="node6" href="$classfidi_1_1Parser_1_1semantic__type.html#a7e79223c3c3df6572074ef6e546254d5" title="Prohibit blind copies. " alt="" coords="592,69,741,111"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser_1_1semantic__type.html#ae0f75641c538a07499d516395660fb2f" title="Empty construction. " alt="" coords="592,135,741,176"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="fidi::Parser::semantic_type::move" name="fidi::Parser::semantic_type::move">
+<area shape="rect" id="node2" href="$structfidi_1_1Parser_1_1stack__symbol__type.html#a74c31fca62d213269021829891f6d79d" title="Steal the contents from sym to build this. " alt="" coords="216,5,360,61"/>
+<area shape="rect" id="node3" href="$structfidi_1_1Parser_1_1stack__symbol__type.html#ad55b92771cd3042d485042a0ec2d0b5d" title="fidi::Parser::stack\l_symbol_type::operator=" alt="" coords="203,86,373,127"/>
+<area shape="rect" id="node4" href="$structfidi_1_1Parser_1_1basic__symbol.html#a1e3e2e735a8ccd6d6cdd036bff54aaec" title="Destroy contents, and record that is empty. " alt="" coords="215,152,361,208"/>
+</map>

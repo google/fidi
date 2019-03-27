@@ -1,0 +1,6 @@
+<map id="fidi::Parser::semantic_type::move" name="fidi::Parser::semantic_type::move">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser_1_1semantic__type.html#a6364915eebed910a51a53a1e2fe65dc0" title="Accessor to a built T. " alt="" coords="203,5,352,47"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser_1_1semantic__type.html#a2e0b62b31f5490a481528e98be70d513" title="Destroy the stored T. " alt="" coords="203,71,352,112"/>
+<area shape="rect" id="node4" href="$classfidi_1_1Parser_1_1semantic__type.html#a7e79223c3c3df6572074ef6e546254d5" title="Prohibit blind copies. " alt="" coords="400,37,549,79"/>
+<area shape="rect" id="node5" href="$classfidi_1_1Parser_1_1semantic__type.html#ae0f75641c538a07499d516395660fb2f" title="Empty construction. " alt="" coords="400,103,549,144"/>
+</map>

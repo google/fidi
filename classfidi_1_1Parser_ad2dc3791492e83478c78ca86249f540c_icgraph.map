@@ -1,0 +1,9 @@
+<map id="fidi::Parser::make_SOURCE" name="fidi::Parser::make_SOURCE">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser.html#a0336260b2b30ab88ba021e980a9ae117" title="fidi::Parser::make\l_ARROW" alt="" coords="183,5,312,47"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser.html#a9f862556440edccd9778250ccc16713f" title="fidi::Parser::make_DASH" alt="" coords="360,13,533,39"/>
+<area shape="rect" id="node4" href="$classfidi_1_1Parser.html#aaa0553f04693355e4f71bb3860972c50" title="fidi::Parser::make\l_COMMA" alt="" coords="581,5,711,47"/>
+<area shape="rect" id="node5" href="$classfidi_1_1Parser.html#afbeed5252ee919257c9fd656ab27cbd2" title="fidi::Parser::make\l_EQUALS" alt="" coords="759,5,888,47"/>
+<area shape="rect" id="node6" href="$classfidi_1_1Parser.html#a179d1b243757f138bda5da3baccfc9cd" title="fidi::Parser::make\l_CBRACKET" alt="" coords="936,5,1065,47"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser.html#a14abf0eeeb962eae65def3ec25f7bdab" title="fidi::Parser::make\l_OBRACKET" alt="" coords="1113,5,1243,47"/>
+<area shape="rect" id="node8" href="$classfidi_1_1Parser.html#a9b0b99529411f9a473e7a0d936e88df8" title="fidi::Parser::make_END" alt="" coords="1291,13,1453,39"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="fidi::AppCaller::~AppCaller" name="fidi::AppCaller::~AppCaller">
+<area shape="rect" id="node2" href="$classfidi_1_1AppCaller.html#a55786901d845da6eee271a8198e11886" title="Constructor. " alt="" coords="235,5,408,32"/>
+<area shape="rect" id="node3" href="$classfidi_1_1AppCaller.html#ac39dcd96db43b2b677de640ef962d89e" title="The assignment operation is also not used, so cleaned up. " alt="" coords="235,56,407,83"/>
+<area shape="rect" id="node4" href="$classfidi_1_1AppCaller.html#a70b0e48f0778c2e761a71d4a846a7024" title="Handle making a single downstream requests. " alt="" coords="239,107,403,133"/>
+</map>

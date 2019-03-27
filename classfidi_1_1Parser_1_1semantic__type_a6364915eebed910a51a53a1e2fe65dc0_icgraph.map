@@ -1,0 +1,14 @@
+<map id="fidi::Parser::semantic_type::as" name="fidi::Parser::semantic_type::as">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser.html#ac52635033d42460f005eb57dfda94a4b" title="fidi::Parser::parse" alt="" coords="213,107,342,133"/>
+<area shape="rect" id="node9" href="$classfidi_1_1Parser_1_1semantic__type.html#a943d47e3890d4b8f4ea93c7e9e513d9c" title="fidi::Parser::semantic\l_type::move" alt="" coords="203,253,352,294"/>
+<area shape="rect" id="node13" href="$classfidi_1_1Parser_1_1semantic__type.html#a9c7b70d2d620fb61fb244d70973e7b49" title="Copy the content of that to this. " alt="" coords="203,318,352,359"/>
+<area shape="rect" id="node3" href="$classfidi_1_1AppDriver.html#ab99a59e3afac567b9f217fc1a8aa4658" title="run the parser in the input stream " alt="" coords="400,5,589,32"/>
+<area shape="rect" id="node5" href="$classfidi_1_1LintDriver.html#ac6d9d414bbd2497e15101ca2c6de5673" title="run the parser in the input stream " alt="" coords="401,56,588,83"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser.html#a3150a86ac43676d0a2233eb94ad35f4c" title="fidi::Parser::operator()" alt="" coords="418,107,571,133"/>
+<area shape="rect" id="node8" href="$structfidi_1_1Parser_1_1symbol__type.html#aa5e2697950aa177f488c5f2837a33d44" title="fidi::Parser::symbol\l_type::symbol_type" alt="" coords="655,129,793,170"/>
+<area shape="rect" id="node4" href="$classfidi_1_1AppDriver.html#a71380038ad4d4a44f5fd9a01b372b421" title="The default constructor. " alt="" coords="637,5,811,32"/>
+<area shape="rect" id="node6" href="$classfidi_1_1LintDriver.html#a0a2afc165e61d5035211b9b76d508f20" title="Constructor explicitly setting the data members. " alt="" coords="641,56,807,83"/>
+<area shape="rect" id="node10" href="$structfidi_1_1Parser_1_1stack__symbol__type.html#a74c31fca62d213269021829891f6d79d" title="Steal the contents from sym to build this. " alt="" coords="423,208,567,264"/>
+<area shape="rect" id="node11" href="$structfidi_1_1Parser_1_1stack__symbol__type.html#ad55b92771cd3042d485042a0ec2d0b5d" title="fidi::Parser::stack\l_symbol_type::operator=" alt="" coords="409,289,580,330"/>
+<area shape="rect" id="node12" href="$structfidi_1_1Parser_1_1basic__symbol.html#a1e3e2e735a8ccd6d6cdd036bff54aaec" title="Destroy contents, and record that is empty. " alt="" coords="421,355,568,411"/>
+</map>

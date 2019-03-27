@@ -1,0 +1,7 @@
+<map id="fidi::FidiServerApplication::defineOptions" name="fidi::FidiServerApplication::defineOptions">
+<area shape="rect" id="node2" href="$classfidi_1_1FidiServerApplication.html#af42bacba3831cfa534c771d262791ab6" title="Respond to the command line option –help. " alt="" coords="228,5,403,47"/>
+<area shape="rect" id="node3" href="$classfidi_1_1FidiServerApplication.html#aff9e02a84e3e6f3a01330734bfe6f9e7" title="Set the logging directory based on –log&#45;dir option. " alt="" coords="228,71,403,112"/>
+<area shape="rect" id="node4" href="$classfidi_1_1FidiServerApplication.html#abac6c35f6a9055b302ce52d5dc6f328d" title="Set the log file name based on –log&#45;file option. " alt="" coords="228,136,403,177"/>
+<area shape="rect" id="node5" href="$classfidi_1_1FidiServerApplication.html#a862589cf4a34ba2cf88487d36ecdf605" title="Set the port the server listens on based on the –port option. " alt="" coords="228,201,403,243"/>
+<area shape="rect" id="node6" href="$classfidi_1_1FidiServerApplication.html#a22f98ec848f00840577c43f335c45f73" title="Respond to the command line option –version. " alt="" coords="228,267,403,308"/>
+</map>

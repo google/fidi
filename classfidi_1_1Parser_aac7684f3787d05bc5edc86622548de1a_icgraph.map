@@ -1,0 +1,15 @@
+<map id="fidi::Parser::make_NUMBER" name="fidi::Parser::make_NUMBER">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser.html#a319d425a719e7cb96b0b966f0e049a77" title="fidi::Parser::make_BLOB" alt="" coords="183,13,353,39"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser.html#ad2eaf3b3ba8409cd372e618d43567604" title="fidi::Parser::make\l_STRING" alt="" coords="401,5,531,47"/>
+<area shape="rect" id="node4" href="$classfidi_1_1Parser.html#a47c284aa1f23b1e8ed184b6e3ba79ffb" title="fidi::Parser::make\l_IDENT" alt="" coords="579,5,708,47"/>
+<area shape="rect" id="node5" href="$classfidi_1_1Parser.html#aff1397ad6c20fdc68c08b9b6fbe9133c" title="fidi::Parser::make\l_SEQUENCE" alt="" coords="756,5,885,47"/>
+<area shape="rect" id="node6" href="$classfidi_1_1Parser.html#ab3c7ca0066e6797ddb3717ac1f06dc25" title="fidi::Parser::make\l_REPEAT" alt="" coords="933,5,1063,47"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser.html#ad2dc3791492e83478c78ca86249f540c" title="fidi::Parser::make\l_SOURCE" alt="" coords="1111,5,1240,47"/>
+<area shape="rect" id="node8" href="$classfidi_1_1Parser.html#a0336260b2b30ab88ba021e980a9ae117" title="fidi::Parser::make\l_ARROW" alt="" coords="1288,5,1417,47"/>
+<area shape="rect" id="node9" href="$classfidi_1_1Parser.html#a9f862556440edccd9778250ccc16713f" title="fidi::Parser::make_DASH" alt="" coords="1465,13,1639,39"/>
+<area shape="rect" id="node10" href="$classfidi_1_1Parser.html#aaa0553f04693355e4f71bb3860972c50" title="fidi::Parser::make\l_COMMA" alt="" coords="1687,5,1816,47"/>
+<area shape="rect" id="node11" href="$classfidi_1_1Parser.html#afbeed5252ee919257c9fd656ab27cbd2" title="fidi::Parser::make\l_EQUALS" alt="" coords="1864,5,1993,47"/>
+<area shape="rect" id="node12" href="$classfidi_1_1Parser.html#a179d1b243757f138bda5da3baccfc9cd" title="fidi::Parser::make\l_CBRACKET" alt="" coords="2041,5,2171,47"/>
+<area shape="rect" id="node13" href="$classfidi_1_1Parser.html#a14abf0eeeb962eae65def3ec25f7bdab" title="fidi::Parser::make\l_OBRACKET" alt="" coords="2219,5,2348,47"/>
+<area shape="rect" id="node14" href="$classfidi_1_1Parser.html#a9b0b99529411f9a473e7a0d936e88df8" title="fidi::Parser::make_END" alt="" coords="2396,13,2559,39"/>
+</map>

@@ -1,0 +1,14 @@
+<map id="fidi::Parser::make_EQUALS" name="fidi::Parser::make_EQUALS">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser.html#aaa0553f04693355e4f71bb3860972c50" title="fidi::Parser::make\l_COMMA" alt="" coords="183,27,312,69"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser.html#a9f862556440edccd9778250ccc16713f" title="fidi::Parser::make_DASH" alt="" coords="360,35,533,61"/>
+<area shape="rect" id="node4" href="$classfidi_1_1Parser.html#a0336260b2b30ab88ba021e980a9ae117" title="fidi::Parser::make\l_ARROW" alt="" coords="581,27,711,69"/>
+<area shape="rect" id="node5" href="$classfidi_1_1Parser.html#ad2dc3791492e83478c78ca86249f540c" title="fidi::Parser::make\l_SOURCE" alt="" coords="759,27,888,69"/>
+<area shape="rect" id="node6" href="$classfidi_1_1Parser.html#ab3c7ca0066e6797ddb3717ac1f06dc25" title="fidi::Parser::make\l_REPEAT" alt="" coords="936,27,1065,69"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser.html#aff1397ad6c20fdc68c08b9b6fbe9133c" title="fidi::Parser::make\l_SEQUENCE" alt="" coords="1113,27,1243,69"/>
+<area shape="rect" id="node8" href="$classfidi_1_1Parser.html#a47c284aa1f23b1e8ed184b6e3ba79ffb" title="fidi::Parser::make\l_IDENT" alt="" coords="1291,27,1420,69"/>
+<area shape="rect" id="node9" href="$classfidi_1_1Parser.html#ad2eaf3b3ba8409cd372e618d43567604" title="fidi::Parser::make\l_STRING" alt="" coords="1468,27,1597,69"/>
+<area shape="rect" id="node10" href="$classfidi_1_1Parser.html#a319d425a719e7cb96b0b966f0e049a77" title="fidi::Parser::make_BLOB" alt="" coords="1645,35,1816,61"/>
+<area shape="rect" id="node11" href="$classfidi_1_1Parser.html#aac7684f3787d05bc5edc86622548de1a" title="fidi::Parser::make\l_NUMBER" alt="" coords="1864,27,1993,69"/>
+<area shape="rect" id="node12" href="$classfidi_1_1Parser.html#abecd97899bc771ef862459446be92994" title="Build a parser object. " alt="" coords="2049,5,2183,32"/>
+<area shape="rect" id="node13" href="$classfidi_1_1Parser_1_1semantic__type.html#a7e79223c3c3df6572074ef6e546254d5" title="Prohibit blind copies. " alt="" coords="2041,57,2191,98"/>
+</map>

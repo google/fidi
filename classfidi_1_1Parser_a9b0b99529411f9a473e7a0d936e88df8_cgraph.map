@@ -1,0 +1,17 @@
+<map id="fidi::Parser::make_END" name="fidi::Parser::make_END">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser.html#a14abf0eeeb962eae65def3ec25f7bdab" title="fidi::Parser::make\l_OBRACKET" alt="" coords="216,27,345,69"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser.html#a179d1b243757f138bda5da3baccfc9cd" title="fidi::Parser::make\l_CBRACKET" alt="" coords="393,27,523,69"/>
+<area shape="rect" id="node4" href="$classfidi_1_1Parser.html#afbeed5252ee919257c9fd656ab27cbd2" title="fidi::Parser::make\l_EQUALS" alt="" coords="571,27,700,69"/>
+<area shape="rect" id="node5" href="$classfidi_1_1Parser.html#aaa0553f04693355e4f71bb3860972c50" title="fidi::Parser::make\l_COMMA" alt="" coords="748,27,877,69"/>
+<area shape="rect" id="node6" href="$classfidi_1_1Parser.html#a9f862556440edccd9778250ccc16713f" title="fidi::Parser::make_DASH" alt="" coords="925,35,1099,61"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser.html#a0336260b2b30ab88ba021e980a9ae117" title="fidi::Parser::make\l_ARROW" alt="" coords="1147,27,1276,69"/>
+<area shape="rect" id="node8" href="$classfidi_1_1Parser.html#ad2dc3791492e83478c78ca86249f540c" title="fidi::Parser::make\l_SOURCE" alt="" coords="1324,27,1453,69"/>
+<area shape="rect" id="node9" href="$classfidi_1_1Parser.html#ab3c7ca0066e6797ddb3717ac1f06dc25" title="fidi::Parser::make\l_REPEAT" alt="" coords="1501,27,1631,69"/>
+<area shape="rect" id="node10" href="$classfidi_1_1Parser.html#aff1397ad6c20fdc68c08b9b6fbe9133c" title="fidi::Parser::make\l_SEQUENCE" alt="" coords="1679,27,1808,69"/>
+<area shape="rect" id="node11" href="$classfidi_1_1Parser.html#a47c284aa1f23b1e8ed184b6e3ba79ffb" title="fidi::Parser::make\l_IDENT" alt="" coords="1856,27,1985,69"/>
+<area shape="rect" id="node12" href="$classfidi_1_1Parser.html#ad2eaf3b3ba8409cd372e618d43567604" title="fidi::Parser::make\l_STRING" alt="" coords="2033,27,2163,69"/>
+<area shape="rect" id="node13" href="$classfidi_1_1Parser.html#a319d425a719e7cb96b0b966f0e049a77" title="fidi::Parser::make_BLOB" alt="" coords="2211,35,2381,61"/>
+<area shape="rect" id="node14" href="$classfidi_1_1Parser.html#aac7684f3787d05bc5edc86622548de1a" title="fidi::Parser::make\l_NUMBER" alt="" coords="2429,27,2559,69"/>
+<area shape="rect" id="node15" href="$classfidi_1_1Parser.html#abecd97899bc771ef862459446be92994" title="Build a parser object. " alt="" coords="2614,5,2749,32"/>
+<area shape="rect" id="node16" href="$classfidi_1_1Parser_1_1semantic__type.html#a7e79223c3c3df6572074ef6e546254d5" title="Prohibit blind copies. " alt="" coords="2607,57,2756,98"/>
+</map>

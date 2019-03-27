@@ -1,0 +1,21 @@
+<map id="fidi::Parser::semantic_type::operator=" name="fidi::Parser::semantic_type::operator=">
+<area shape="rect" id="node2" href="$classfidi_1_1Parser_1_1semantic__type.html#a2e0b62b31f5490a481528e98be70d513" title="Destroy the stored T. " alt="" coords="203,125,352,166"/>
+<area shape="rect" id="node7" href="$classfidi_1_1Parser.html#aac7684f3787d05bc5edc86622548de1a" title="fidi::Parser::make\l_NUMBER" alt="" coords="213,191,342,233"/>
+<area shape="rect" id="node3" href="$classfidi_1_1Parser_1_1semantic__type.html#a943d47e3890d4b8f4ea93c7e9e513d9c" title="fidi::Parser::semantic\l_type::move" alt="" coords="411,123,560,165"/>
+<area shape="rect" id="node4" href="$structfidi_1_1Parser_1_1stack__symbol__type.html#a74c31fca62d213269021829891f6d79d" title="Steal the contents from sym to build this. " alt="" coords="632,5,776,61"/>
+<area shape="rect" id="node5" href="$structfidi_1_1Parser_1_1stack__symbol__type.html#ad55b92771cd3042d485042a0ec2d0b5d" title="fidi::Parser::stack\l_symbol_type::operator=" alt="" coords="619,86,789,127"/>
+<area shape="rect" id="node6" href="$structfidi_1_1Parser_1_1basic__symbol.html#a1e3e2e735a8ccd6d6cdd036bff54aaec" title="Destroy contents, and record that is empty. " alt="" coords="631,152,777,208"/>
+<area shape="rect" id="node8" href="$classfidi_1_1Parser.html#a319d425a719e7cb96b0b966f0e049a77" title="fidi::Parser::make_BLOB" alt="" coords="400,203,571,229"/>
+<area shape="rect" id="node9" href="$classfidi_1_1Parser.html#ad2eaf3b3ba8409cd372e618d43567604" title="fidi::Parser::make\l_STRING" alt="" coords="639,233,769,274"/>
+<area shape="rect" id="node10" href="$classfidi_1_1Parser.html#a47c284aa1f23b1e8ed184b6e3ba79ffb" title="fidi::Parser::make\l_IDENT" alt="" coords="837,233,967,274"/>
+<area shape="rect" id="node11" href="$classfidi_1_1Parser.html#aff1397ad6c20fdc68c08b9b6fbe9133c" title="fidi::Parser::make\l_SEQUENCE" alt="" coords="1015,233,1144,274"/>
+<area shape="rect" id="node12" href="$classfidi_1_1Parser.html#ab3c7ca0066e6797ddb3717ac1f06dc25" title="fidi::Parser::make\l_REPEAT" alt="" coords="1192,233,1321,274"/>
+<area shape="rect" id="node13" href="$classfidi_1_1Parser.html#ad2dc3791492e83478c78ca86249f540c" title="fidi::Parser::make\l_SOURCE" alt="" coords="1369,233,1499,274"/>
+<area shape="rect" id="node14" href="$classfidi_1_1Parser.html#a0336260b2b30ab88ba021e980a9ae117" title="fidi::Parser::make\l_ARROW" alt="" coords="1547,233,1676,274"/>
+<area shape="rect" id="node15" href="$classfidi_1_1Parser.html#a9f862556440edccd9778250ccc16713f" title="fidi::Parser::make_DASH" alt="" coords="1724,240,1897,267"/>
+<area shape="rect" id="node16" href="$classfidi_1_1Parser.html#aaa0553f04693355e4f71bb3860972c50" title="fidi::Parser::make\l_COMMA" alt="" coords="1945,233,2075,274"/>
+<area shape="rect" id="node17" href="$classfidi_1_1Parser.html#afbeed5252ee919257c9fd656ab27cbd2" title="fidi::Parser::make\l_EQUALS" alt="" coords="2123,233,2252,274"/>
+<area shape="rect" id="node18" href="$classfidi_1_1Parser.html#a179d1b243757f138bda5da3baccfc9cd" title="fidi::Parser::make\l_CBRACKET" alt="" coords="2300,233,2429,274"/>
+<area shape="rect" id="node19" href="$classfidi_1_1Parser.html#a14abf0eeeb962eae65def3ec25f7bdab" title="fidi::Parser::make\l_OBRACKET" alt="" coords="2477,233,2607,274"/>
+<area shape="rect" id="node20" href="$classfidi_1_1Parser.html#a9b0b99529411f9a473e7a0d936e88df8" title="fidi::Parser::make_END" alt="" coords="2655,240,2817,267"/>
+</map>

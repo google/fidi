@@ -1,0 +1,5 @@
+<map id="fidi::Parser::symbol_type" name="fidi::Parser::symbol_type">
+<area shape="rect" id="node2" href="$structfidi_1_1Parser_1_1basic__symbol.html" title="{fidi::Parser::basic\l_symbol\&lt; by_type \&gt;\n|+ value\l+ location\l|+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ ~basic_symbol()\l+ clear()\l+ empty()\l+ move()\l&#45; operator=()\l}" alt="" coords="26,477,169,760"/>
+<area shape="rect" id="node3" href="$structfidi_1_1Parser_1_1by__type.html" title="Type access provider for token (enum) based symbols. " alt="" coords="5,191,147,356"/>
+<area shape="rect" id="node4" href="$structfidi_1_1Parser_1_1basic__symbol.html" title="{fidi::Parser::basic\l_symbol\&lt; Base \&gt;\n|+ value\l+ location\l|+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ ~basic_symbol()\l+ clear()\l+ empty()\l+ move()\l&#45; operator=()\l}" alt="" coords="171,132,303,415"/>
+</map>

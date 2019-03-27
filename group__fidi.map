@@ -1,0 +1,5 @@
+<map id="The service mock application fidi (φίδι)" name="The service mock application fidi (φίδι)">
+<area shape="rect" id="node2" href="$group__app.html" title="The HTTP application\l that does the heavy\l lifting for fidi" alt="" coords="253,5,411,61"/>
+<area shape="rect" id="node3" href="$group__inputhandling.html" title="The request parser\l for fidi (φίδι)" alt="" coords="263,86,401,127"/>
+<area shape="rect" id="node4" href="$group__lint.html" title="The linter for the\l input request for \l fidi (φίδι)" alt="" coords="269,152,395,208"/>
+</map>

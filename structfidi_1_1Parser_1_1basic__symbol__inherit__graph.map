@@ -1,0 +1,6 @@
+<map id="fidi::Parser::basic_symbol&lt; Base &gt;" name="fidi::Parser::basic_symbol&lt; Base &gt;">
+<area shape="rect" id="node3" href="$structfidi_1_1Parser_1_1basic__symbol.html" title="{fidi::Parser::basic\l_symbol\&lt; by_type \&gt;\n|+ value\l+ location\l|+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ ~basic_symbol()\l+ clear()\l+ empty()\l+ move()\l&#45; operator=()\l}" alt="" coords="25,477,167,760"/>
+<area shape="rect" id="node5" href="$structfidi_1_1Parser_1_1basic__symbol.html" title="{fidi::Parser::basic\l_symbol\&lt; by_state \&gt;\n|+ value\l+ location\l|+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ basic_symbol()\l+ ~basic_symbol()\l+ clear()\l+ empty()\l+ move()\l&#45; operator=()\l}" alt="" coords="201,477,348,760"/>
+<area shape="rect" id="node4" href="$structfidi_1_1Parser_1_1symbol__type.html" title="&quot;External&quot; symbols: returned by the scanner. " alt="" coords="5,817,176,938"/>
+<area shape="rect" id="node6" href="$structfidi_1_1Parser_1_1stack__symbol__type.html" title="&quot;Internal&quot; symbol: element of the stack. " alt="" coords="201,809,357,945"/>
+</map>

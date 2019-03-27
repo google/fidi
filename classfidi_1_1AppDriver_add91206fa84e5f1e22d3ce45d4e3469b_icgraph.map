@@ -1,0 +1,6 @@
+<map id="fidi::AppDriver::GetUrl" name="fidi::AppDriver::GetUrl">
+<area shape="rect" id="node2" href="$classfidi_1_1AppDriver.html#a65c9ee117c6394c31ad3fb0f02791217" title="The method where the guts of the work is done. " alt="" coords="205,35,368,61"/>
+<area shape="rect" id="node3" href="$classfidi_1_1AppDriver.html#a71380038ad4d4a44f5fd9a01b372b421" title="The default constructor. " alt="" coords="416,5,589,32"/>
+<area shape="rect" id="node4" href="$classfidi_1_1FidiRequestHandler.html#a3bbb997c40d76f80016a4e0d46975ca0" title="this is the workhorse for request handling " alt="" coords="419,57,586,98"/>
+<area shape="rect" id="node5" href="$classfidi_1_1FidiRequestHandler.html#a5646abfcaadc66bb07bc971083e4bc0a" title="Destructor – nothing needs to be done. " alt="" coords="637,57,804,98"/>
+</map>
