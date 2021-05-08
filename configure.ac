@@ -61,37 +61,48 @@ AC_CHECK_HEADERS([Poco/URI.h])
 AC_CHECK_HEADERS([Poco/Util/Units.h])
 AC_CHECK_HEADERS([Poco/Net/HTTPStreamFactory.h])
 
-saved_ldflags="${LDFLAGS}"
-LDFLAGS="${LDFLAGS} -lPocoFoundation"
-AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <Poco/URI.h>
-#include <iostream>
-using Poco::URI;]],
-  [[URI uri1("http://www.google.com/");
-  std::cout << "Scheme:    " << uri1.getScheme() << std::endl;
-  URI uri2; uri2.setScheme("https")]])],
-    [LIBS="$LIBS -lPocoFoundation"],
-    [AC_MSG_FAILURE([Poco Foundation Library is not installed.])])
-LDFLAGS="${saved_ldflags}"
 
-saved_ldflags="${LDFLAGS}"
-LDFLAGS="${LDFLAGS} -lPocoNet"
-AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <Poco/Net/HTTPStreamFactory.h>
-using Poco::Net::HTTPStreamFactory;;]],
-  [[HTTPStreamFactory::registerFactory();]])],
-    [LIBS="$LIBS -lPocoNet"],
-    [AC_MSG_FAILURE([Poco Net Library is not installed.])])
-LDFLAGS="${saved_ldflags}"
+AC_CHECK_LIB([PocoFoundation],[main],[HAVE_POCOFOUNDATION=1],AC_MSG_ERROR([PocoFoundation library not found.]))
+if test "$HAVE_POCOFOUNDATION"; then
+    save_libs="${LIBS}"
+    LIBS="-lPocoFoundation"
+    AC_LINK_IFELSE(
+        [AC_LANG_PROGRAM(
+            [#include "Poco/UnicodeConverter.h"],
+            [std::wstring wstr; Poco::UnicodeConverter::toUTF16("hello", wstr);]
+        )],
+        [LIBS="$LIBS $save_libs"],
+        [AC_MSG_ERROR([linking with PocoFoundation failed.])]
+    )
+fi
 
-saved_ldflags="${LDFLAGS}"
-LDFLAGS="${LDFLAGS} -lPocoUtil"
-AC_LINK_IFELSE([AC_LANG_PROGRAM([[#include <Poco/Util/Units.h>
-#include <iostream>
-using namespace Poco::Util::Units::Constants;
-using namespace Poco::Util::Units::Values;]],
-  [[std::cout << "One mile is " << km(mile(1))   << std::endl;]])],
-    [LIBS="$LIBS -lPocoUtil"],
-    [AC_MSG_FAILURE([Poco Util Library is not installed.])])
-LDFLAGS="${saved_ldflags}"
+AC_CHECK_LIB([PocoNet],[main],[HAVE_POCONET=1],AC_MSG_ERROR([PocoNet library not found.]))
+if test "$HAVE_POCONET"; then
+    save_libs="${LIBS}"
+    LIBS="-lPocoNet"
+    AC_LINK_IFELSE(
+        [AC_LANG_PROGRAM(
+            [#include "Poco/Net/HTTPClientSession.h"],
+            [Poco::Net::HTTPClientSession();]
+        )],
+        [LIBS="$LIBS $save_libs"],
+        [AC_MSG_ERROR([linking with PocoNET failed.])]
+    )
+fi
+
+AC_CHECK_LIB([PocoUtil],[main],[HAVE_POCOUTIL=1],AC_MSG_ERROR([PocoUtil library not found.]))
+if test "$HAVE_POCOUTIL"; then
+    save_libs="${LIBS}"
+    LIBS="-lPocoUtil"
+    AC_LINK_IFELSE(
+        [AC_LANG_PROGRAM(
+            [#include "Poco/Util/Option.h"],
+            [Poco::Util::Option();]
+        )],
+        [LIBS="$LIBS $save_libs"],
+        [AC_MSG_ERROR([linking with PocoUtil failed.])]
+    )
+fi
 
 
 # Checks for header files.

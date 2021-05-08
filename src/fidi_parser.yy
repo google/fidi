@@ -37,7 +37,7 @@
 %define api.namespace {fidi}
 
 /* set the parser's class identifier */
-%define parser_class_name {Parser}
+%define api.parser.class {Parser}
 /* increase verbosity of error messages */
 %define parse.error verbose
 /* Keep track of locations */
