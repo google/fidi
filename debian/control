@@ -2,9 +2,9 @@ Source: fidi
 Section: net
 Priority: optional
 Maintainer: Manoj Srivastava <srivasta@debian.org>
-Build-Depends: debhelper (>= 11), libfl-dev, bison, doxygen, graphviz,
+Build-Depends: debhelper (>= 12), libfl-dev, bison, doxygen, graphviz,
                plantuml, libpoco-dev
-Standards-Version: 4.3.0
+Standards-Version: 4.5.0
 Homepage: https://github.com/google/fidi
 #Vcs-Browser: https://salsa.debian.org/debian/fidi
 #Vcs-Git: https://salsa.debian.org/debian/fidi.git

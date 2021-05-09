@@ -1,5 +1,5 @@
-fidi (1.0.0-1) unstable; urgency=low
+fidi (1.0.1-1) unstable; urgency=low
 
   * Initial release (Closes: #nnnn) ITP Bug
 
- -- Manoj Srivastava <srivasta@debian.org>  Wed, 20 Mar 2019 18:46:15 -0400
+ -- Manoj Srivastava <srivasta@debian.org>  Sat, 08 May 2021 16:50:07 -0700
